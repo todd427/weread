@@ -71,6 +71,12 @@ readlist/
 ```
 
 ---
+| **Purpose**          | **URL**                                                                  | **What it does**                  |
+| -------------------- | ------------------------------------------------------------------------ | --------------------------------- |
+| **Admin login**      | [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)             | Django admin UI                   |
+| **Book list+create** | [http://127.0.0.1:8000/api/books/](http://127.0.0.1:8000/api/books/)     | GET = list, POST = add            |
+| **Book detail**      | [http://127.0.0.1:8000/api/books/1/](http://127.0.0.1:8000/api/books/1/) | GET, PATCH, DELETE by primary key |
+---
 
 ## 🔧 Configuration
 

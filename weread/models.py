@@ -9,6 +9,8 @@ class Book(models.Model):
     openlibrary_url = models.URLField(blank=True)
     googlebooks_url = models.URLField(blank=True)
     amazon_url = models.URLField(blank=True)
+    amazon_search_url = models.URLField(blank=True)
+    amazon_asin = models.CharField(max_length=20, blank=True)
     date_acquired = models.DateField(null=True, blank=True)
     added_at = models.DateTimeField(auto_now_add=True)
 
