@@ -78,6 +78,22 @@ readlist/
 | **Book detail**      | [http://127.0.0.1:8000/api/books/1/](http://127.0.0.1:8000/api/books/1/) | GET, PATCH, DELETE by primary key |
 ---
 
+API Examples (adjust id as needed):
+
+    All books:
+    GET http://127.0.0.1:8000/api/books/
+
+    Add a book:
+    POST http://127.0.0.1:8000/api/books/
+    (with JSON body in your tool)
+
+    Get/update/delete single book (ID=1):
+    GET / PATCH / DELETE http://127.0.0.1:8000/api/books/1/
+
+Django Admin UI
+
+    http://127.0.0.1:8000/admin/
+
 ## 🔧 Configuration
 
 * Default DB is SQLite for ease of setup; switch to PostgreSQL for production.
