@@ -5,7 +5,7 @@ class shelfBook(models.Model):
     author = models.CharField(max_length=300)
     asin = models.CharField(max_length=20, unique=True, null=True, blank=True)
     isbn = models.CharField(max_length=20, null=True, blank=True)
-    source = models.CharField(max_length=100)  # e.g., "kindle", "epub", "openlibrary"
+    source = models.CharField(max_length=100, null=True, blank=True)  # e.g., "kindle", "epub", "openlibrary"
     date_added = models.DateTimeField(auto_now_add=True)
     cover_url = models.URLField(blank=True, null=True)
     metadata = models.JSONField(blank=True, null=True)
