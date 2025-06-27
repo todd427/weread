@@ -1,0 +1,59 @@
+<div id="recent-books-widget"></div>
+
+<script>
+  (async function loadRecentBooks() {
+    const API_URL = "http://127.0.0.1:8000/api/books/last/5/";
+    const container = document.getElementById("recent-books-widget");
+
+    const style = `
+      <style>
+        .recent-books-box {
+          font-family: sans-serif;
+          max-width: 400px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          padding: 1em;
+          background: #fafafa;
+        }
+        .recent-books-box h3 {
+          margin-top: 0;
+        }
+        .book-item {
+          margin-bottom: 0.75em;
+          padding-bottom: 0.75em;
+          border-bottom: 1px solid #eee;
+        }
+        .book-item:last-child {
+          border-bottom: none;
+        }
+        .book-title {
+          font-weight: bold;
+        }
+        .book-author {
+          font-size: 0.9em;
+          color: #555;
+        }
+      </style>
+    `;
+
+    container.innerHTML = style + '<div class="recent-books-box"><h3>📚 Recent Reads</h3><div id="book-list">Loading…</div></div>';
+
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error("API failed");
+      const books = await response.json();
+
+      const bookList = books.map(book => `
+        <div class="book-item">
+          <div class="book-title">${book.title}</div>
+          <div class="book-author">${book.author || "Unknown Author"}</div>
+        </div>
+      `).join("");
+
+      document.getElementById("book-list").innerHTML = bookList;
+    } catch (err) {
+      document.getElementById("book-list").innerHTML = "Error loading books.";
+      console.error("Widget error:", err);
+    }
+  })();
+</script>
